@@ -1,20 +1,8 @@
-# ycm-wiki-zhcn
-
-本页面提供Vim补全插件YouCompleteMe中文Wiki，包含：
--  官方README
--  其他帮助文档
-
-部分名词还没想到一个好听的翻译，暂保留不译：
-
-名词              | 解释
-:-----------------|:--
-completer         | 补全器件
-sematic completer | 基于语义的补全器件
-
---------------------------------------------
+介绍
+======
 
 Vim代码补全引擎YouCompleteMe
-===============================================
+-----------------------------------------------
 
 [![Gitter room](https://img.shields.io/gitter/room/Valloric/YouCompleteMe.svg)](https://gitter.im/Valloric/YouCompleteMe)
 [![Linux build status](https://img.shields.io/travis/Valloric/YouCompleteMe/master.svg?label=Linux)](https://travis-ci.org/Valloric/YouCompleteMe)
