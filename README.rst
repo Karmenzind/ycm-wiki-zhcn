@@ -8,7 +8,7 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 .. _YouCompleteMe: https://github.com/Valloric/YouCompleteMe
 
 -  官方文档完全翻译
--  其他帮助文档 vim
+-  其他帮助文档
 
 当前状态
 --------

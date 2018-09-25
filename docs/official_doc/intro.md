@@ -1,8 +1,7 @@
-介绍
+插件介绍
 ======
 
-Vim代码补全引擎YouCompleteMe
------------------------------------------------
+**Vim代码补全引擎YouCompleteMe**
 
 [![Gitter room](https://img.shields.io/gitter/room/Valloric/YouCompleteMe.svg)](https://gitter.im/Valloric/YouCompleteMe)
 [![Linux build status](https://img.shields.io/travis/Valloric/YouCompleteMe/master.svg?label=Linux)](https://travis-ci.org/Valloric/YouCompleteMe)
