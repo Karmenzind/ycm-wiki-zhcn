@@ -19,6 +19,9 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 
 翻译中...
 
+对应版本的 COMMIT_ ，可能会和最新官方文档内容有出入，如果发现请告知
+
+.. _COMMIT: https://github.com/Valloric/YouCompleteMe/commit/f67e5ff27b048d8c55a10ba6a27c6c5b16d0f6ba
 
 参与维护
 --------
@@ -43,5 +46,4 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 
    official_doc/remained
    official_doc/intro
-
 
