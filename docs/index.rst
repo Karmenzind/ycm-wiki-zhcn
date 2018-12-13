@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-YouCompleteMe - 中文 Wiki
-=========================
+Wiki 介绍
+=========
 
 Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含：
 
@@ -42,8 +42,20 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 
 .. toctree::
    :maxdepth: 2
-   :caption: 官方文档
 
-   official_doc/remained
-   official_doc/intro
+    WIKI介绍 <index>
+
+
+.. toctree::
+   :maxdepth: 3
+   :caption: 官方文档完全翻译
+
+   保留翻译词 <official_doc/remained>
+   正文 <official_doc/intro>
+
+.. toctree::
+    :caption: 链接
+    
+    WIKI repo <https://github.com/Karmenzind/ycm-wiki-zhcn>
+    YCM repo <https://github.com/Valloric/YouCompleteMe>
 

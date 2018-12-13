@@ -25,3 +25,10 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 
 如果有任何问题、意见和建议，也欢迎在 `此处 <https://github.com/Karmenzind/ycm-wiki-zhcn>`_ 创建issue。
 
+
+目前需要解决的问题
+~~~~~~~~~~~~~~~~~~
+
+因为没有太多时间研究sphinx，目前存在如下问题需要解决：
+
+1. 不支持中文搜索

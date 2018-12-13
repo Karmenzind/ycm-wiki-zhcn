@@ -37,6 +37,7 @@ YouCompleteMe_ 是个快速、即时响应并支持模糊搜索的 Vim_ 代码�
 .. _YouCompleteMe:
 .. _Vim:
 
+
 - 一个基于标识符的引擎，支持所有编程语言；
 - 一个基于[Clang][] 的引擎，为 C/C++/Objective-C/Objective-C++/CUDA （*后续简称“C系语言”*）提供 native sematic code 补全；
 - 一个基于Jedi 的引擎，用于补全 Python 2 和 3；
@@ -46,6 +47,7 @@ YouCompleteMe_ 是个快速、即时响应并支持模糊搜索的 Vim_ 代码�
 - 一个基于 racer 的 Rust 补全引擎；
 - 一个基于 jdt.ls 的实验中的 Java 补全引擎；
 - 一个基于 omnifunc 的引擎，使用 Vim 的 omnicompelete 系统为许多其他预言（Ruby、PHP等）提供补全支持
+
 
 ![YouCompleteMe GIF demo](http://i.imgur.com/0OP4ood.gif)
 
@@ -74,7 +76,9 @@ demo 也展示了实际使用中的的语义引擎。当用户在输入模式下
 
 **以及……**
 
-YCM 还对许多语言提供了 |基于语义的仿IDE特性| ：
+YCM 还对许多语言提供了 `基于语义的仿IDE特性`__ ：
+
+__ `特性速览`_
 
 - 查找标识符的声明、定义和使用等；
 - 展示类、变量、函数等的类型信息；
@@ -90,11 +94,14 @@ YCM 还对许多语言提供了 |基于语义的仿IDE特性| ：
 
 .. _UltiSnips: 
 
+------
 
 安装
 ----
 
-### Mac OS X
+Mac OS X
+~~~~~~~~~
+
 
 此处（使用 ``install.py`` ）是安装 YCM 最快捷的方式，但可能并不适用于所有人。如果以下教程对你不奏效，移步 `完整安装指导`_ 。
 
@@ -104,7 +111,10 @@ YCM 还对许多语言提供了 |基于语义的仿IDE特性| ：
 
 如果你不用 GUI 版本，建议选择 MacVim.app 包（ ``MacVim.app/Contents/MacOS/Vim`` ）中的 Vim 二进制文件。为确保生效，从下载好的 MacVim_ 中正确复制 ``mvim`` 脚本到你的二进制文件目录（例如 ``/usr/local/bin/mvim`` ）然后创建链接：
 
+.. code-block:: bash
+
     ln -s /usr/local/bin/mvim vim
+
 
 用 Vundle_ 安装 YCM 。
 
@@ -122,6 +132,7 @@ YCM 还对许多语言提供了 |基于语义的仿IDE特性| ：
 
 编译 **包含** 对 C 系语言语义支持的 YCM ：
 
+.. code-block:: bash
 
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer
@@ -129,8 +140,11 @@ YCM 还对许多语言提供了 |基于语义的仿IDE特性| ：
 
 编译 **不包含** 对 C 系语言语义支持的 YCM ：
 
+.. code-block:: bash
+
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py
+
 
 以下为可用的附加语言支持选项：
 
