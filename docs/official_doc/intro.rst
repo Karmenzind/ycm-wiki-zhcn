@@ -49,6 +49,10 @@ YouCompleteMe_ 是个快速、即时响应并支持模糊搜索的 Vim_ 代码�
 
 .. |YouCompleteMe GIF demo| image:: http://i.imgur.com/0OP4ood.gif
 
+
+`如果动图未显示，点此跳转 <http://i.imgur.com/0OP4ood.gif>`_
+
+
 ..    alt: YouCompleteMe GIF demo
 
 动图 demo 说明：

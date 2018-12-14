@@ -19,8 +19,9 @@ sys.path.insert(0, os.path.abspath('.'))
 
 
 # -- Project information -----------------------------------------------------
+repo_name = 'ycm-wiki-zhcn'
 
-project = 'ycm-wiki-zhcn'
+project = repo_name
 copyright = '2018, Karmenzind'
 author = 'Karmenzind'
 
@@ -80,7 +81,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
+html_style = None
 
+# html_theme = "sphinx_rtd_theme"
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -110,6 +113,13 @@ html_static_path = ['_static']
 #
 # html_sidebars = {}
 
+html_context = {
+    "display_github": True,  # Integrate GitHub
+    "github_user": "Karmenzind",  # Username
+    "github_repo": repo_name,
+    "github_version": "master",  # Version
+    "conf_py_path": "/docs/",  # Path in the checkout to the docs root
+}
 
 # -- Options for HTMLHelp output ---------------------------------------------
 
