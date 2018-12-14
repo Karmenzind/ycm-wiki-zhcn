@@ -41,17 +41,17 @@ Vim_ 代码补全插件 YouCompleteMe_ (*后续简称 ycm*) 中文 Wiki，包含
 * :ref:`search`
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-    WIKI介绍 <index>
+    WIKI说明 <index>
 
 
 .. toctree::
    :maxdepth: 3
    :caption: 官方文档完全翻译
 
-   保留翻译词 <official_doc/remained>
-   正文 <official_doc/intro>
+   * 保留翻译词 <official_doc/remained>
+   official_doc/intro
 
 .. toctree::
     :caption: 链接
