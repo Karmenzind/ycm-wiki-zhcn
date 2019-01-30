@@ -150,7 +150,8 @@ Mac OS X
 - C# 支持：用 Homebrew_ 安装 Mono 或下载[Mono Mac package][mono-install-osx] 并在执行 ``install.py`` 时添加 ``--cs-completer`` 。
 - Go 支持：安装 `Go <go-install_>`_ ，并在执行 ``install.py`` 时添加 ``--go-completer`` 。
 - JavaScript 和 TypeScript 支持：安装 `Node.js 和 npm <npm-install_>`_ ，并在执行 ``install.py`` 时添加 ``--ts-completer`` 。
-- Rust 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
+- Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
+- Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
 如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` , ``rustc``, 和 ``cargo`` 然后直接运行：
@@ -215,7 +216,8 @@ Linux 64-bit
 - C# 支持：用 Homebrew_ 安装 Mono 或下载[Mono Mac package][mono-install-osx] 并在执行 ``install.py`` 时添加 ``--cs-completer`` 。
 - Go 支持：安装 `Go <go-install_>`_ ，并在执行 ``install.py`` 时添加 ``--go-completer`` 。
 - JavaScript 和 TypeScript 支持：安装 `Node.js 和 npm <npm-install_>`_ ，并在执行 ``install.py`` 时添加 ``--ts-completer`` 。
-- Rust 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
+- Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
+- Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
 如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` , ``rustc``, 和 ``cargo`` 然后直接运行：
@@ -276,7 +278,8 @@ YCM 需要这一项。注意，这并不能阻止你编辑非 UTF-8 编码的文
 - C# 支持：用 Homebrew_ 安装 Mono 或下载[Mono Mac package][mono-install-osx] 并在执行 ``install.py`` 时添加 ``--cs-completer`` 。
 - Go 支持：安装 `Go <go-install_>`_ ，并在执行 ``install.py`` 时添加 ``--go-completer`` 。
 - JavaScript 和 TypeScript 支持：安装 `Node.js 和 npm <npm-install_>`_ ，并在执行 ``install.py`` 时添加 ``--ts-completer`` 。
-- Rust 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
+- Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
+- Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
 如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``msbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` 和 ``cargo`` 然后直接运行：
@@ -296,8 +299,113 @@ YCM 拥有健全的默认配置，但你可能依然想要看看可选的配置�
 FreeBSD/OpenBSD
 ~~~~~~~~~~~~~~~~
 
+此处（使用 ``install.py`` ）是安装 YCM 最快捷的方式，但可能并不适用于所有人。如果以下教程对你不奏效，移步 `完整安装指导`_ 。
+
+**注意：** YCM 官方并没有正式支持 OpenBSD / FreeBSD 。
+
+确定你已经安装了附带 Python 2 或 3 支持的版本不低于 7.4.1578 的 Vim 。
+
+OpenBSD 5.5 及之后的版本都自带了最近版本的 Vim 。你可以在 Vim 中用 ``:version`` 来查看所安装 Vim 的版本。
+
+FreeBSD 11.x 需要安装 cmake ：
+
+.. code-block:: cmd
+
+    pkg install cmake
+
+用 `Vundle <vundle_>`_ 安装 YCM 。
+
+**谨记：** YCM 插件包含编译组件。如果你用 Vundle **更新** 了 YCM 而 ycm_core 库的 API 发生变化（很少发生）， YCM 会提醒你重新编译。那么你需要重新走一遍安装流程。
+
+编译 **包含** 对 C 系语言语义支持的 YCM ：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clang-completer
+
+
+编译 **不包含** 对 C 系语言语义支持的 YCM ：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py
+
+如果系统中没有 ``python`` 可执行文件，或者默认的 ``python`` 不是编译需要的版本，则需要明确指定 python 解释器：
+
+.. code-block:: bash
+
+    python3 install.py --clang-completer
+
+以下为可用的附加语言支持选项：
+
+- C# 支持：安装 Mono 并在执行 ``install.py`` 时添加 ``--cs-completer`` 。
+- Go 支持：安装 `Go <go-install_>`_ ，并在执行 ``install.py`` 时添加 ``--go-completer`` 。
+- JavaScript 和 TypeScript 支持：安装 `Node.js 和 npm <npm-install_>`_ ，并在执行 ``install.py`` 时添加 ``--ts-completer`` 。
+- Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
+- Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
+
+如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
+``npm`` , ``rustc``, 和 ``cargo`` 然后直接运行：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --all
+
+搞定。查阅 `用户指南` 了解 YCM 的用法。不要忘记，如果你需要 C 系语言的补全引擎正常工作，则需要对 YCM 提供你的项目的 compilation flags 。这些都可以在用户指南中找到。
+
+YCM 拥有健全的默认配置，但你可能依然想要看看可选的配置细节。基于谨慎考虑，一些有趣的配置默认为关闭状态，而你可能想要开启它们。
+
 完整安装指导
 ~~~~~~~~~~~~~~~~
+
+这里提供了让 YCM 在 Unix 和 Windows 系统上运行起来的必要步骤。
+
+**Windows 用户注意：** 我们假设你在使用 ``cmd.exe`` 命令行，而且所需的可执行文件已经加入了 PATH 环境变量。不要直接复制这里的命令，用 ``%USERPROFILE%`` 替换其中的 ``~`` 并且使用正确的 Vim 根目录（默认在 ``vimfiles`` 而不是 ``.vim`` ）。
+
+遇到任何问题，查看 *FAQ* 。
+
+**谨记：** YCM 插件包含编译组件。如果你用 Vundle **更新** 了 YCM 而 ycm_core 库的 API 发生变化（很少发生）， YCM 会提醒你重新编译。那么你需要重新走一遍安装流程。
+
+**请谨遵指导，逐字阅读。**
+
+1. 
+    **确定你的 Vim 版本 *至少是 7.4.1578* 并且支持 Python 2 或 Python 3 脚本**。
+
+    进入 Vim ，输入 ``:version`` 。查看输出结果的前2-3行，里面应该包括 ``Vi IMproved X.Y`` ， X.Y 是 vim 的主要版本。如果你的版本大于 7.4 ，那么你已经准备就绪。如果你的版本是 7.4 ，找到下面的 ``Included patched: 1-Z`` ， Z 需要是大于或等于 1578 的数字。
+
+    如果你的 Vim 版本不够新，你需要 `从源码编译Vim <vim-build_>`_ （不要担心，很简单）。
+
+    搞定 Vim 7.4.1578+ 版本之后，在 Vim 中输入 ``:echo has('python') || has('python3')`` ，输出结果应该为 1 。如果是 0 ，那么就需要安装支持 Python 的 Vim 版本。
+
+    对于 Windows ，还需要检查 Vim 的架构是 32 还是 64-bit 。这一点很重要，因为这个架构需要和 Python 以及 YCM 库架构匹配。我们推荐使用 64-bit 的 Vim 。
+
+2.
+    用 `Vundle <vundle_>`_ （或者 `Pathogen <Pathogen>`_ ，但用 Vundle 更好） 安装 YCM 。对于 Vundle ，需要添加 ``Plugin 'Valloric/YouCompleteMe'`` 到 `vimrc <vimrc_>`_ 。
+
+    如果你不用 Vundle 来安装 YCM ，确保在checkout之后执行 ``git submodule update --init --recursive`` 来获取 YCM 的依赖。
+
+3. 
+    *这一步 仅仅 针对需要 C 系语言语义补全支持的情况，否则无关紧要。*
+
+    **下载最新版本的libclang** 。 Clang 是一个用来编译 C 系语言的开源编译器，它提供了可以驱动 YCM 相关语义补全引擎的 ``libclang`` 库。 YCM 支持 libclang 的 7.0.0 或更高版本。
+
+    你可以使用系统自带的 libclang ，但是是在 *确保版本是 7.0.0 或更高的前提下* ，否则就不要用。即使版本合适，我们也推荐尽可能使用 `llvm.org上的官方编译版本 <clang-download_>`_ 。确保下载匹配你操作系统的压缩包。
+
+    我们 **强烈建议避免使用** 系统自带的 libclang ，为保证万无一失，使用上游提供的预编译 libclang 。
+
+4. 
+    **编译 YCM 所需的 ycm_core 库** 。这个库是 YCM 用于获取快速补全的 C++ 引擎。
+
+    你需要安装 ``cmake`` ，以生成所需的 makefile 。 Linux 用户可以使用包管理器（Ubuntu用 ``sudo apt-get install cmake`` ），其他用户可以从 cmake 项目网站 `下载安装 <cmake-download_>`_ 。 Mac 用户也可以通过 `HomeBrew <brew_>`_ 执行 `brew install cmake` 来安装。
+
+    在 Unix 系统上，你需要确保安装 Python 头文件。 Debian 系的 Linux 发行版使用 ``sudo apt-get install python-dev python3-dev`` 命令。在 Mac 上这些文件是现成的。
+
+    在 Windows 系统上，你需要下载安装 `Python 2 或 Python 3 <python-win-download_>`_ 。根据你的 Vim 架构来选择对应版本。你还需要 Microsoft Visual C++ (MSVC) 来编译 YCM 。你可以通过安装 `Visual Stidio <visual-studio-download_>`_ 来获取它。 MSVC 14 （Visual Studio 2015） 和 15 （2017）是官方支持的。
+
+    **翻译待续**
 
 .. HERE
 
