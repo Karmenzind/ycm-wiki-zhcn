@@ -11,22 +11,32 @@ README 文档
 
 如果在使用 YCM 过程中遇到问题，需要帮助、建议和支持：
 
-请先仔细阅读与你操作系统对应的[installation instructions](#installation)。
+请先仔细阅读与你操作系统对应的 `安装指南`__ 。
+
+__ `安装`_
+
 推荐使用我们提供的`install.py`脚本进行安装。
 
-然后根据你使用的sematic completer查看[用户指南](#user-guide)。如果你使用C/C++/Objective-C/Objective-C++/CUDA，请 _务必_ 阅读[这一节](#c-family-semantic-completion).
+然后根据你使用的sematic completer查看 `用户指南`__ 。如果你使用C/C++/Objective-C/Objective-C++/CUDA，请 _务必_ 阅读 `这一节`__ 。
 
-最后，查看[问答列表](#faq)。
+__ `用户指南`_
+__ `C系语言语义补全`_
 
-如果依然无法解决问题，看这里[contacts](#contact)。
+最后，查看 `FAQ`__ 。
+
+__ `FAQ`_
+
+如果依然无法解决问题， `看着里`__ 。
+
+__ `联系方式`_
 
 请 **不要** 去freenode的#vim寻求帮助。
-请根据[此处提供的联系方式](#contact)，直接联系YouCompleteMe项目维护者。
+请根据 `此处提供的联系方式`__ ，直接联系YouCompleteMe项目维护者。
 
+__ `联系方式`_
 
 简介
 --------
-
 
 YouCompleteMe_ 是个快速、即时响应并支持模糊搜索的 Vim_ 代码补全引擎。它包含了如下几个补全引擎：
 
@@ -35,7 +45,8 @@ YouCompleteMe_ 是个快速、即时响应并支持模糊搜索的 Vim_ 代码�
 
 
 - 一个基于标识符的引擎，支持所有编程语言；
-- 一个基于[Clang][] 的引擎，为 C/C++/Objective-C/Objective-C++/CUDA （*后续简称“C系语言”*）提供 native sematic code 补全；
+- 一个基于 Clang_ 的引擎，为 C/C++/Objective-C/Objective-C++/CUDA （*后续简称“C系语言”*）提供 native sematic code 补全；
+- 一个基于 clangd_ 的 **实验阶段的** C系语言补全引擎；
 - 一个基于Jedi 的引擎，用于补全 Python 2 和 3；
 - 一个基于OmniSharp 的引擎，用于补全 C# ；
 - 一个结合了 Gocode 和 Godef 的语义引擎，用于 Go 补全；
@@ -137,6 +148,19 @@ Mac OS X
     ./install.py --clang-completer
 
 
+编译 **包含** 基于 **实验阶段的 clangd** 的C系语言语义支持：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clangd-completer
+
+注意，你可以安装同时带有 **libclang** 和 **clangd** 的 YCM ， **clangd** 会成为首选，除非你在 ``vimrc`` 中加上：
+
+.. code-block:: vim
+
+    let g:ycm_use_clangd = "Never"
+
 编译 **不包含** 对 C 系语言语义支持的 YCM ：
 
 .. code-block:: bash
@@ -203,6 +227,18 @@ Linux 64-bit
     cd ~/.vim/bundle/YouCompleteMe
     python3 install.py --clang-completer
 
+编译 **包含** 基于 **实验阶段的 clangd** 的C系语言语义支持：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clangd-completer
+
+注意，你可以安装同时带有 **libclang** 和 **clangd** 的 YCM ， **clangd** 会成为首选，除非你在 ``vimrc`` 中加上：
+
+.. code-block:: vim
+
+    let g:ycm_use_clangd = "Never"
 
 编译 **不包含** 对 C 系语言语义支持的 YCM ：
 
@@ -219,7 +255,7 @@ Linux 64-bit
 - Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
 - Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
-如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
+如果要一次性编译所有特性，则加上 ``--all`` 参数。注意，这个 flag **不** 安装 **clangd** ，你需要手动添加 ``--clangd-completer`` 。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` , ``rustc``, 和 ``cargo`` 然后直接运行：
 
 .. code-block:: bash
@@ -265,6 +301,18 @@ YCM 需要这一项。注意，这并不能阻止你编辑非 UTF-8 编码的文
     cd %USERPROFILE%/vimfiles/bundle/YouCompleteMe
     python install.py --clang-completer
 
+编译 **包含** 基于 **实验阶段的 clangd** 的C系语言语义支持：
+
+.. code-block:: bash
+
+    cd %USERPROFILE%/vimfiles/bundle/YouCompleteMe
+    python install.py --clangd-completer
+
+注意，你可以安装同时带有 **libclang** 和 **clangd** 的 YCM ， **clangd** 会成为首选，除非你在 ``vimrc`` 中加上：
+
+.. code-block:: vim
+
+    let g:ycm_use_clangd = "Never"
 
 编译 **不包含** 对 C 系语言语义支持的 YCM ：
 
@@ -281,7 +329,7 @@ YCM 需要这一项。注意，这并不能阻止你编辑非 UTF-8 编码的文
 - Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
 - Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
-如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``msbuild``, ``go``, ``tsserver``, ``node``,
+如果要一次性编译所有特性，则加上 ``--all`` 参数。注意，这个 flag **不** 安装 **clangd** ，你需要手动添加 ``--clangd-completer`` 。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``msbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` 和 ``cargo`` 然后直接运行：
 
 .. code-block:: cmd
@@ -324,6 +372,18 @@ FreeBSD 11.x 需要安装 cmake ：
     cd ~/.vim/bundle/YouCompleteMe
     ./install.py --clang-completer
 
+编译 **包含** 基于 **实验阶段的 clangd** 的C系语言语义支持：
+
+.. code-block:: bash
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.py --clangd-completer
+
+注意，你可以安装同时带有 **libclang** 和 **clangd** 的 YCM ， **clangd** 会成为首选，除非你在 ``vimrc`` 中加上：
+
+.. code-block:: vim
+
+    let g:ycm_use_clangd = "Never"
 
 编译 **不包含** 对 C 系语言语义支持的 YCM ：
 
@@ -346,7 +406,7 @@ FreeBSD 11.x 需要安装 cmake ：
 - Rust 支持：安装 `Rust <rust-install_>`_ ，并在执行 ``install.py`` 时添加 ``--rust-completer`` 。
 - Java 支持：安装 `JDK8 (必须是8) <jdk-install_>`_ ，并在执行 ``install.py`` 时添加 ``--java-completer`` 。
 
-如果要一次性编译所有特性，则加上 ``--all`` 参数。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
+如果要一次性编译所有特性，则加上 ``--all`` 参数。注意，这个 flag **不** 安装 **clangd** ，你需要手动添加 ``--clangd-completer`` 。如果要安装所有语言特性，确保在 ``PATH`` 路径下安装了 ``xbuild``, ``go``, ``tsserver``, ``node``,
 ``npm`` , ``rustc``, 和 ``cargo`` 然后直接运行：
 
 .. code-block:: bash
@@ -392,9 +452,11 @@ YCM 拥有健全的默认配置，但你可能依然想要看看可选的配置�
 
     **下载最新版本的libclang** 。 Clang 是一个用来编译 C 系语言的开源编译器，它提供了可以驱动 YCM 相关语义补全引擎的 ``libclang`` 库。 YCM 支持 libclang 的 7.0.0 或更高版本。
 
-    你可以使用系统自带的 libclang ，但是是在 *确保版本是 7.0.0 或更高的前提下* ，否则就不要用。即使版本合适，我们也推荐尽可能使用 `llvm.org上的官方编译版本 <clang-download_>`_ 。确保下载匹配你操作系统的压缩包。
+    除了 ``libclang`` ， YCM 还支持 **实验阶段的** 基于 clangd_ 的 completer。你可以从 `llvm.org releases <clang-download_>`_ 下载最新版本的 clangd_ 。按照第4步告诉 YCM 去那里找到 clangd 可执行文件。请注意， YCM 支持 7.0.0 或更高版本的 clangd_ 。
 
-    我们 **强烈建议避免使用** 系统自带的 libclang ，为保证万无一失，使用上游提供的预编译 libclang 。
+    你可以使用系统自带的 libclang 或 clangd ，但是是在 *确保版本是 7.0.0 或更高的前提下* ，否则就不要用。即使版本合适，我们也推荐尽可能使用 `llvm.org上的官方编译版本 <clang-download_>`_ 。确保下载匹配你操作系统的压缩包。
+
+    我们 **强烈建议避免使用** 系统自带的 libclang 或 clangd ，为保证万无一失，使用上游提供的预编译 libclang 。
 
 4. 
     **编译 YCM 所需的 ycm_core 库** 。这个库是 YCM 用于获取快速补全的 C++ 引擎。
@@ -405,25 +467,152 @@ YCM 拥有健全的默认配置，但你可能依然想要看看可选的配置�
 
     在 Windows 系统上，你需要下载安装 `Python 2 或 Python 3 <python-win-download_>`_ 。根据你的 Vim 架构来选择对应版本。你还需要 Microsoft Visual C++ (MSVC) 来编译 YCM 。你可以通过安装 `Visual Stidio <visual-studio-download_>`_ 来获取它。 MSVC 14 （Visual Studio 2015） 和 15 （2017）是官方支持的。
 
-    **翻译待续**
+    此处我们假设你用 Vundle 安装了 YCM ，意味着顶层 YCM 路径在 ``~/.vim/bundle/YouCompleteMe`` 。
 
-.. HERE
+    创建一个新目录用于存放编译文件。执行以下命令：
+
+    .. code-block:: bash
+
+        cd ~
+        mkdir ycm_build
+        cd ycm_build
+
+    现在我们需要生成 makefile 。如果你 **不** 在意 C 系语言支持，也不打算使用 **实验阶段的** 基于 ``clangd`` 的 completer ，在 ``ycm_build`` 目录下执行：
+
+    .. code-block:: bash
+
+        cmake -G "<generator>" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    
+    其中 ``<generator>`` 在 Unix 系统上是 ``Unix Makefiles`` ，在 Windows 上则是以下之一：
+
+    - ``Visual Studio 14 Win64``
+    - ``Visual Studio 15 Win64``
+
+    如果你的 Vim 架构是 32 位，就去掉 ``Win64`` 。
+
+    如果想使用系统版本的 boost 库，你可以给 cmake 加上 ``-DUSE_SYSTEM_BOOST=ON`` 。在一些系统上，如果（cmake）捆绑的 boost 不能开箱即用，这个参数会比较有用。
+
+    **注意：** 我们 **强烈建议不要使用** 系统版本的 boost ，减少不必要的风险。
+
+    如果你 **在意** C 系语言的语义支持，并且想使用 libclang 作为驱动而非 **实验阶段** 的基于 ``clangd`` 的 completer， 那么你执行 ``cmake`` 的命令会变得更复杂一点。我们假设你按照第3步从 llvm.org 下载了 LLVM+Clang 的二进制包，而且把压缩文件解压到了 ``~/ycm_temp/llvm_root_dir`` （里面包含 ``bin`` ， ``lib`` ， ``include`` 等目录）。在 Windows 系统上，你可以使用 `7-zip <7-zip_>`_ 来解压 LLVM+Clang 的安装文件。
+
+    **注意：** 这 *仅仅* 针对 *下载* 的 LLVM 二进制包生效，而非自己编译的 LLVM ！如果使用的是自己编译的 LLVM ，查看下文的 ``EXTERNAL_LIBCLANG_PATH`` 。
+
+    在 ``ycm_build`` 路径下执行：
+
+    .. code-block:: bash
+
+        cmake -G "<generator>" -DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+
+    其中， ``<generator`` 的替换如前所述。
+
+    配置文件生成之后，使用如下命令来编译库文件：
+
+    .. code-block:: bash
+
+        cmake --build . --target ycm_core --config Release
+    
+    其中， ``--config Release`` 是给 Windows 系统用的，在 Unix 系统上會被忽略。
+
+    如果你想使用系统版本的 libclang ，在 cmake 命令中用 ``-DUSE_SYSTEM_LIBCLANG=ON`` 这个 flag 来 **替换** ``-DPATH_TO_LLVM_ROOT=...`` 。
+
+    **注意：** 我们 **强烈建议不要使用** 系统版本的 libclang ，请选择上游发布的二进制文件，以减少不必要的风险。
+
+    你也可以强行使用自定义的 libclang 库，传入 ``-DEXTERNAL_LIBCLANG_PATH=/path/to/libclang.so`` 即可（库文件在 Mac 上后缀为 ``.dylib`` ）。再次声明，这个 flag 是用来 **替换** 其他的 flag 。 **如果你使用的是从源码编译的 LLVM ，你就需要使用这个 flag** 。
+
+    如果你编译时用到了 clang 支持，那么 ``cmake`` 命令也会为你把 ``libclang.[so|dylib|dll]`` 放到 ``YcmCompleteMe/third_party/ycmd`` 路径下（ YCM 工作时会用到它）。
+
+    如果你 **在意** C 系语言支持，而且希望使用 **实验阶段的** 基于 clangd_ 的 completer ，那么你需要在 ``vimrc`` 中加上：
+
+    .. code-block:: vim
+
+        let g:ycm_use_clangd = "Always"
+        let g:ycm_clangd_binary_path = "/path/to/clangd"
 
 
+    用你在第三步的下载地址来替换 /path/to/clangd 。
+
+5.
+    *这一步是可选的。*
+
+    为了更好的 Unicode 支持以及更好的正则表达式性能，编译 regex_ 模块。步骤类似于编译 ``ycm_core`` 库：
+
+    .. code-block:: bash
+
+        cd ~
+        mkdir regex_build
+        cd regex_build
+        cmake -G "<generator>" . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex
+        cmake --build . --target _regex --config Release
+
+
+    其中 ``<generator>`` 同前文所述。
+
+6.
+    按照需要，配置其他语言支持：
+
+    - C# 支持：安装 `非 Windows 平台的 Mono <mono-install_>`_ 。
+      切换到 ``YouCompleteMe/third_party/ycmd/third_party/OmniSharpServer`` 目录，执行：
+
+      .. code-block:: bash
+
+          msbuild /property:Configuration=Release /property:Platform="Any CPU" /property:TargetFrameworkVersion=v4.5
+
+      在 Windows 上，确保 `msbuild 在你的 PATH 环境变量里 <add-msbuild-to-path>`_ 。
+
+    - Go 支持：安装 `Go <go-install_>`_ ，并将其添加到环境变量路径中。切换到 ``YouCompleteMe/third_party/ycmd/third_party/gocode`` 执行 ``go build`` 。
+
+    - JavaScript 和 TypeScript 支持：安装 `Node.js and npm <npm-install_>`_ ，切换到 ``YouCompleteMe/third_party/ycmd`` 执行 ``npm install -g --prefix third_party/tsserver typescript`` 。
+
+    - Rust 支持：安装 `Rust <rust-install_>`_ ，切换到 ``YouCompleteMe/third_party/ycmd/third_party/racerd`` 执行 ``cargo build --release`` 。
+    - Java 支持：安装 `JDK8 (version 8 required) <jdk-install_>`_ 。下载 `binary release of eclipse.jdt.ls <jdtls-release_>`_ 然后解压到 ``YouCompleteMe/third_party/ycmd/third_party/eclipse.jdt.ls/target/repository`` 。
+      
+      注意：这个方法不推荐大部分用户使用，只支持愿意尽情折腾的高级用户和 YCM 开发者。
+      请使用 ``install.py`` 来开启 java 支持。
+
+搞定。查阅 `用户指南` 了解 YCM 的用法。不要忘记，如果你需要 C 系语言的补全引擎正常工作，则需要对 YCM 提供你的项目的 compilation flags 。这些都可以在用户指南中找到。
+
+YCM 拥有健全的默认配置，但你可能依然想要看看可选的配置细节。基于谨慎考虑，一些有趣的配置默认为关闭状态，而你可能想要开启它们。
+    
 
 特性速览
 --------
 
+
+
 通用（所有语言）
 ~~~~~~~~~~~~~~~
 
+- 极快的基于标识符的 completer ，包含 tags 文件和语法元素
+
+C系语言（C，C++，Objective C，Objective C++，CUDA）
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+    **翻译待续**
+
+.. HERE
 
 用户指南
 --------
 
+C系语言语义补全
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 completer 子命令全列表
 ------------------------
+
+
+FAQ
+------
+
+联系方式
+--------
+
+许可
+------
 
 .. ref
 
@@ -509,6 +698,9 @@ completer 子命令全列表
 .. _jdtls-release: http://download.eclipse.org/jdtls/milestones
 .. _diacritic: https://www.unicode.org/glossary/#diacritic
 .. _regex: https://pypi.org/project/regex/
+.. _clangd: https://clang.llvm.org/extra/clangd.html
+.. _fixedcdb: https://clang.llvm.org/docs/JSONCompilationDatabase.html#alternatives
+.. _clangd-indexing: https://clang.llvm.org/extra/clangd.html#project-wide-indexing
 
 
 .. |Gitter room| image:: https://img.shields.io/gitter/room/Valloric/YouCompleteMe.svg
